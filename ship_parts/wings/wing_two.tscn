@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhs2h55xfso5v"]
+
+[ext_resource type="Script" path="res://ship_parts/wings/wing_two.gd" id="1_ahy6v"]
+[ext_resource type="Texture2D" uid="uid://dv5665cvf8xcm" path="res://art/wing/wing.png" id="2_v2cqq"]
+[ext_resource type="PackedScene" uid="uid://3m61605g7l8w" path="res://ship/attachment_point/AttachmentPoint.tscn" id="3_mn28b"]
+
+[node name="WingTwo" type="Area2D" groups=["ShipComponents"]]
+script = ExtResource("1_ahy6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v2cqq")
+
+[node name="Area2D" parent="." instance=ExtResource("3_mn28b")]
+z_index = -1
+position = Vector2(116, 1)
+
+[node name="Area2D2" parent="." instance=ExtResource("3_mn28b")]
+z_index = -1
+position = Vector2(-114, 15)
+
+[node name="Area2D3" parent="." instance=ExtResource("3_mn28b")]
+z_index = -1
+position = Vector2(-15, 35)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

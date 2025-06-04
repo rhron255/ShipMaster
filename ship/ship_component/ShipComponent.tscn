@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://caxiutll3crae"]
+
+[ext_resource type="Script" path="res://ship/ship_component/ship_component.gd" id="1_exu5p"]
+
+[node name="Area2D" type="Area2D" groups=["ShipComponents"]]
+script = ExtResource("1_exu5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

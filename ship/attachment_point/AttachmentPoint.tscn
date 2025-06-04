@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3m61605g7l8w"]
+
+[ext_resource type="Script" path="res://ship/attachment_point/attachment_point.gd" id="1_ji2d0"]
+[ext_resource type="Texture2D" uid="uid://cbn0dxkbt1h43" path="res://art/AttachmentPoint.png" id="2_pip81"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nsrjl"]
+
+[node name="Area2D" type="Area2D" groups=["AttachmentPoints"]]
+script = ExtResource("1_ji2d0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+shape = SubResource("CircleShape2D_nsrjl")
+debug_color = Color(0.969158, 0, 0.463188, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" groups=["AttachmentPoints"]]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_pip81")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

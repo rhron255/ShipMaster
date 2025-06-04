@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://batk5x03qkycg"]
+
+[ext_resource type="Script" path="res://ship/ship.gd" id="1_dbwqn"]
+[ext_resource type="PackedScene" uid="uid://dhs2h55xfso5v" path="res://ship_parts/wings/wing_two.tscn" id="2_8x4te"]
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_dbwqn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WingTwo" parent="." instance=ExtResource("2_8x4te")]
+mirror = true
+
+[node name="WingTwo2" parent="." instance=ExtResource("2_8x4te")]
