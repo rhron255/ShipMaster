@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://curbfaccdurlc"]
+
+[ext_resource type="Script" path="res://ship_parts/hulls/hull_one.gd" id="1_u254h"]
+[ext_resource type="Texture2D" uid="uid://caib4vc2sth8v" path="res://art/hull/hull.png" id="2_3v3if"]
+[ext_resource type="PackedScene" uid="uid://3m61605g7l8w" path="res://ship/attachment_point/AttachmentPoint.tscn" id="3_lvm2l"]
+
+[node name="HullOne" type="Area2D" node_paths=PackedStringArray("texture", "shape")]
+script = ExtResource("1_u254h")
+texture = NodePath("Sprite2D")
+shape = NodePath("CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-77, -155.5)
+scale = Vector2(1, 1.85)
+polygon = PackedVector2Array(2.99999, -4.05404, 146, -1.89188, 145, 15.946, 214, 20.8108, 213, 55.4054, 142, 57.5676, 140, 74.8649, 206, 115.946, 207, 170.541, 116, 142.432, 113, 102.432, 77, 118.649, 38, 101.351, 39, 139.189, -55, 170.541, -58, 114.865, 5.99999, 76.4865, 6.99999, 57.027, -60, 57.5676, -62, 21.3514, -7.62939e-06, 15.946)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-137, -158)
+texture = ExtResource("2_3v3if")
+centered = false
+
+[node name="Area2D" parent="." instance=ExtResource("3_lvm2l")]
+position = Vector2(-138, -83)
+
+[node name="Area2D2" parent="." instance=ExtResource("3_lvm2l")]
+position = Vector2(136, -81)
+
+[node name="Area2D3" parent="." instance=ExtResource("3_lvm2l")]
+position = Vector2(0, -157)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

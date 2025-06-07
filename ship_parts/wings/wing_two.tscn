@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dv5665cvf8xcm" path="res://art/wing/wing.png" id="2_v2cqq"]
 [ext_resource type="PackedScene" uid="uid://3m61605g7l8w" path="res://ship/attachment_point/AttachmentPoint.tscn" id="3_mn28b"]
 
-[node name="WingTwo" type="Area2D" groups=["ShipComponents"]]
+[node name="WingTwo" type="Area2D" node_paths=PackedStringArray("texture", "shape") groups=["ShipComponents"]]
 script = ExtResource("1_ahy6v")
+texture = NodePath("Sprite2D")
+shape = NodePath("CollisionPolygon2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -22, 86, -34, 87, -66, 121, -67, 122, 69, 93, 70, 93, 42, -120, 36, -121, -5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_v2cqq")

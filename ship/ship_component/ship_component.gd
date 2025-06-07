@@ -8,21 +8,42 @@ enum MirrorDirection {
 }
 
 @export var mirror := false
-@onready var texture = $Sprite2D
-
+@export var texture: Sprite2D
+@export var shape: CollisionPolygon2D
 @onready var connection_points: Array[Node] = find_children("*","AttachmentPoint")
 #@onready var engine_points: Array[Node] = find_children("EnginePoint*","Marker2D")
 var current_direction: MirrorDirection = MirrorDirection.UP
 
 func mirror_horizontal():
 	texture.flip_h = !texture.flip_h
+
 	for point in connection_points:
-		(point as AttachmentPoint).position.x *= -1
+		point.position.x *= -1
+
+	# Mirror the shape’s position (relative to RigidBody2D)
+	shape.position.x *= -1
+
+	# Mirror polygon points (relative to shape's origin)
+	var mirrored_polygon = PackedVector2Array()
+	for point in shape.polygon:
+		mirrored_polygon.append(Vector2(-point.x, point.y))
+	shape.polygon = mirrored_polygon
 
 func mirror_vertical():
 	texture.flip_v = !texture.flip_v
+
 	for point in connection_points:
-		(point as AttachmentPoint).position.y *= -1
+		point.position.y *= -1
+
+	# Mirror the shape’s position (relative to RigidBody2D)
+	shape.position.y *= -1
+
+	# Mirror polygon points (relative to shape's origin)
+	var mirrored_polygon = PackedVector2Array()
+	for point in shape.polygon:
+		mirrored_polygon.append(Vector2(point.x, -point.y))
+	shape.polygon = mirrored_polygon
+
 
 func mirror_part(direction: MirrorDirection):
 	if direction != current_direction:
@@ -39,6 +60,4 @@ func _ready() -> void:
 	for point in connection_points:
 		if point is AttachmentPoint:
 			point.component = $"."
-	var shape = RectangleShape2D.new()
-	shape.size = texture.texture.get_size()
-	$CollisionShape2D.shape = shape
+	$".".shape = shape
