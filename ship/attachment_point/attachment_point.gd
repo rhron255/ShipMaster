@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func attach(other: AttachmentPoint) -> void:
 	component.position -= global_position - other.global_position
+	component.lifted = false
 
 
 func toggle_edit() -> void:
