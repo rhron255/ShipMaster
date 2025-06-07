@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://batk5x03qkycg"]
 
-[ext_resource type="Script" path="res://ship/ship.gd" id="1_dbwqn"]
+[ext_resource type="Script" uid="uid://blpduevpg0ap3" path="res://ship/ship.gd" id="1_dbwqn"]
 [ext_resource type="PackedScene" uid="uid://dhs2h55xfso5v" path="res://ship_parts/wings/wing_two.tscn" id="2_8x4te"]
 [ext_resource type="PackedScene" uid="uid://curbfaccdurlc" path="res://ship_parts/hulls/hull_one.tscn" id="3_y3sv2"]
 

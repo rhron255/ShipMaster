@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://curbfaccdurlc"]
 
-[ext_resource type="Script" path="res://ship_parts/hulls/hull_one.gd" id="1_u254h"]
+[ext_resource type="Script" uid="uid://ktccvddeumc1" path="res://ship_parts/hulls/hull_one.gd" id="1_u254h"]
 [ext_resource type="Texture2D" uid="uid://caib4vc2sth8v" path="res://art/hull/hull.png" id="2_3v3if"]
 [ext_resource type="PackedScene" uid="uid://3m61605g7l8w" path="res://ship/attachment_point/AttachmentPoint.tscn" id="3_lvm2l"]
 
